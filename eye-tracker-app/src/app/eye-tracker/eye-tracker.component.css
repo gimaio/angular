@@ -1,0 +1,9 @@
+.symbol {
+    font-size: 200px;
+    transition: transform 0.3s ease;
+  }
+  
+  .selected {
+    transform: scale(2.5);
+  }
+  
