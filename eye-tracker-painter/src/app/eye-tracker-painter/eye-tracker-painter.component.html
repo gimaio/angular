@@ -1,0 +1,29 @@
+<div class="tracker-container">
+    <video #video autoplay playsinline class="video-feed"></video>
+    <canvas #drawCanvas class="draw-layer"></canvas>
+  </div>
+  <!-- Pulsante per aprire/chiudere la palette -->
+<button class="palette-toggle" (click)="togglePalette()">🎨</button>
+
+<!-- Palette a scomparsa -->
+<div class="palette" [class.open]="paletteOpen">
+
+  <h3>Colore</h3>
+  <div class="colors">
+    <div class="color" 
+         *ngFor="let c of colors"
+         [style.background]= "c"
+         (click)="setColor(c)">
+    </div>
+  </div>
+
+  <h3>Spessore</h3>
+  <input type="range" min="4" max="40" [(ngModel)]="lineWidth" (input)="updateLineWidth()">
+
+</div>
+
+<!-- Video + Canvas -->
+<div class="tracker-container">
+  <video #video autoplay playsinline class="video-feed"></video>
+  <canvas #drawCanvas class="draw-layer"></canvas>
+</div>
