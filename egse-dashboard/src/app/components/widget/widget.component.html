@@ -1,0 +1,88 @@
+<div class="widget" [title]="element.description">
+
+  <!-- LED -->
+  <div *ngIf="element.graphical === 'led'" class="led" [class.on]="element.value === true"></div>
+
+  <!-- Label -->
+  <label [for]="element.id" class="widget-label">
+    {{ element.label }}
+  </label>
+
+  <!-- INPUT TEXTAREA -->
+  <input *ngIf="element.in_out === 'input' && element.editable && element.graphical === 'textarea'"
+         [id]="element.id"
+         type="text"
+         [(ngModel)]="cmdpar.value"
+         [size]="cmdpar.length || 20"
+         [maxLength]="maxLength"
+         (ngModelChange)="onCommandDirect()" />
+
+  <!-- OUTPUT TEXTAREA -->
+  <input *ngIf="element.in_out === 'output' && !element.editable && element.graphical === 'textarea'"
+         [id]="element.id"
+         type="text"
+         [value]="cmdpar.value"
+         [size]="cmdpar.length || 20"
+         [maxLength]="maxLength"
+         readonly />
+
+  <!-- SWITCH -->
+  <input *ngIf="element.graphical === 'switch'"
+         type="checkbox"
+         [checked]="cmdpar.value"
+         [disabled]="!element.editable"
+         (change)="onCommand($event)" />
+
+  <!-- SELECTDYNAMIC -->
+  <select *ngIf="element.graphical?.toLowerCase().startsWith('selectdynamic')"
+          [id]="element.id + 'seldyn'"
+          (change)="onSelectCommand($event)">
+    <option *ngFor="let opt of selectOptions"
+            [value]="opt"
+            [selected]="cmdpar?.value?.toLowerCase() === opt.toLowerCase()">
+      {{ opt }}
+    </option>
+  </select>
+
+  <!-- SELECTCMD -->
+  <select *ngIf="element.graphical?.toLowerCase().startsWith('selectcmd')"
+          [id]="element.id"
+          (change)="onSelectCommand($event)">
+    <option value="Select..." disabled selected>Select...</option>
+    <option *ngFor="let opt of selectOptions"
+            [value]="opt"
+            [selected]="cmdpar?.value?.toLowerCase() === opt.toLowerCase()">
+      {{ opt }}
+    </option>
+  </select>
+
+  <!-- SELECT -->
+  <select *ngIf="element.graphical?.toLowerCase().startsWith('select') && !element.graphical.toLowerCase().startsWith('selectcmd') && !element.graphical.toLowerCase().startsWith('selectdynamic')"
+          [id]="element.id"
+          (change)="onSelectCommand($event)">
+    <option *ngFor="let opt of selectOptions"
+            [value]="opt"
+            [selected]="cmdpar?.value?.toLowerCase() === opt.toLowerCase()">
+      {{ opt }}
+    </option>
+  </select>
+
+  <!-- BUTTON -->
+  <button *ngIf="element.graphical === 'button'"
+          type="button"
+          [disabled]="!element.editable"
+          (click)="sendCommand(element.id, cmdpar.value)">
+    {{ element.label }}
+  </button>
+
+  <!-- LIST OUTPUT -->
+  <div *ngIf="element.graphical === 'list' && element.in_out === 'output'">
+    <div class="listbox-area">
+      <ul [id]="element.id" tabindex="0" role="listbox">
+        <li role="option">{{ cmdpar.value }}</li>
+      </ul>
+    </div>
+    <button type="button" (click)="downloadList()">Download</button>
+  </div>
+
+</div>

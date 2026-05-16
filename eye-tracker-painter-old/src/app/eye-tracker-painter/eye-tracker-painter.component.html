@@ -1,0 +1,19 @@
+<div class="toolbar">
+  <button class="palette-toggle" (click)="togglePalette()">🎨</button>
+
+  <div class="palette" [class.open]="paletteOpen">
+    <div class="color"
+         *ngFor="let c of ['#ff0000','#00ff00','#0000ff','#ffff00','#ff00ff','#00ffff','#000000','#ffffff']"
+         [style.background]="c"
+         (click)="setColor(c)">
+    </div>
+
+    <div class="line-width-control">
+      <label>Spessore: {{ lineWidth }}</label>
+      <input type="range" min="2" max="40" [(ngModel)]="lineWidth" (input)="updateLineWidth()">
+    </div>
+  </div>
+</div>
+
+<video #video autoplay playsinline></video>
+<canvas #canvas></canvas>

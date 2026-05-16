@@ -1,0 +1,60 @@
+.widget {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .widget-label {
+    font-weight: bold;
+    cursor: help;
+  }
+  
+  .widget {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .widget-label {
+    font-weight: bold;
+    cursor: help;
+  }
+  
+  .led {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: gray;
+    display: inline-block;
+  }
+  
+  .led.on {
+    background-color: limegreen;
+  }
+  
+  select {
+    padding: 4px;
+    font-size: 14px;
+  }
+  
+  .listbox-area {
+    border: 1px solid #ccc;
+    padding: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  select {
+    padding: 4px;
+    font-size: 14px;
+  }
+  
+  .listbox-area {
+    border: 1px solid #ccc;
+    padding: 4px;
+    background-color: #f9f9f9;
+  }
+  

@@ -1,0 +1,46 @@
+video {
+  display: none;
+}
+
+canvas {
+  border: 2px solid #333;
+  background: #fff;
+}
+
+.toolbar {
+  margin-bottom: 10px;
+}
+
+.palette-toggle {
+  font-size: 24px;
+  padding: 8px;
+}
+
+.palette {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.palette.open {
+  opacity: 1;
+  height: auto;
+}
+
+.color {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid #333;
+}
+
+.line-width-control {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}

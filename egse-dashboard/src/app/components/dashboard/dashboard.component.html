@@ -1,0 +1,8 @@
+<h1>EGSE MMI Dashboard</h1>
+<div class="grid">
+  <app-subsystem-panel
+    *ngFor="let subsystem of subsystems"
+    [code]="subsystem.code"
+    [label]="subsystem.label">
+  </app-subsystem-panel>
+</div>

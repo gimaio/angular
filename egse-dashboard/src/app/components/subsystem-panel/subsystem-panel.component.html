@@ -1,0 +1,18 @@
+<div class="panel">
+    <h2>{{ label }}</h2>
+    <p *ngIf="subsystem">Subsystem name: {{ subsystem.name }}</p>
+  
+    <div *ngFor="let box of subsystem?.boxes">
+        <h3>{{ box.label }}</h3>
+        <div *ngFor="let group of box.groups">
+          <h4>{{ group.label }}</h4>
+          <div class="elements">
+            <ng-container *ngFor="let el of group.elements">
+              <app-widget [element]="el"></app-widget>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      
+  </div>
+  
