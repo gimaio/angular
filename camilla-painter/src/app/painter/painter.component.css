@@ -18,4 +18,26 @@
     border: 1px solid black;
     background: white;
   }
+
+  .side-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 48px;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  .side-text.left {
+    left: 10px;
+  }
+  
+  .side-text.right {
+    right: 10px;
+  }
+  
   

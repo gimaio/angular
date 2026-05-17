@@ -1,25 +1,36 @@
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
 <div class="toolbar">
-    <label>
-      Colore:
-      <input type="color" (input)="changeColor($event)">
-    </label>
-  
-    <label>
-      Spessore:
-      <input type="range" min="1" max="20" value="4" (input)="changeSize($event)">
-    </label>
-  
-    <label>
-      Retention (sec):
-      <input type="number" min="1" max="60" value="5" (input)="changeRetention($event)">
-    </label>
-  
-    <button (click)="clearCanvas()">Pulisci</button>
-  </div>
-  
-  <div class="canvas-wrapper">
-    <canvas #canvas id="eyeCanvas"></canvas>
-  </div>
-  
-  <video #video autoplay playsinline width="320" height="240"></video>
-  
+  <label>
+    Colore:
+    <input type="color" (input)="changeColor($event)">
+  </label>
+
+  <label>
+    Spessore:
+    <input type="range" min="1" max="20" value="4" (input)="changeSize($event)">
+  </label>
+
+  <label>
+    Smoothing:
+    <input type="range" min="0" max="10" step="1" value="2" (input)="changeSmoothing($event)">
+  </label>
+
+  <label>
+    Retention (sec):
+    <input type="number" min="1" max="60" value="5" (input)="changeRetention($event)">
+  </label>
+
+  <button (click)="clearCanvas()">Pulisci</button>
+  <button (click)="saveCanvas()">Salva</button>
+</div>
+
+<div class="canvas-wrapper">
+  <div class="side-text left">Camilla 🌈</div>
+  <canvas #canvas id="eyeCanvas"></canvas>
+  <div class="side-text right">Camilla 🌈</div>
+</div>
+
+<video #video autoplay playsinline width="320" height="240"></video>

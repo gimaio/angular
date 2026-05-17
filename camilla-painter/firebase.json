@@ -1,16 +1,13 @@
 {
   "hosting": {
-    "public": "dist/camilla-painter",
+    "public": "dist/camilla-painter/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
     "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
+      { "source": "**", "destination": "/index.html" }
     ]
   }
 }
